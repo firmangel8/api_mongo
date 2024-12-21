@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "4a05c308-f6e0-478e-af46-21e48713f32e",
+		"name": "api-mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3140692"
+	},
+	"item": [
+		{
+			"name": "/check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/read",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"{\"book_id\"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_name\": \"Database Management\",\n    \"year\": 2024,\n    \"total_sales\" : 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{flask_local}}/create",
+					"host": [
+						"{{flask_local}}"
+					],
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update/<id>",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_name\": \"Database Management\",\n    \"total_sales\" : 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{flask_local}}/update/67622c7bcfaedbd9fb3c7a72",
+					"host": [
+						"{{flask_local}}"
+					],
+					"path": [
+						"update",
+						"67622c7bcfaedbd9fb3c7a72"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete/<id>",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{flask_local}}/delete/67623ad1d7c0801923e30fcb",
+					"host": [
+						"{{flask_local}}"
+					],
+					"path": [
+						"delete",
+						"67623ad1d7c0801923e30fcb"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "flask_local",
+			"value": "http://127.0.0.1:5000"
+		}
+	]
+}
